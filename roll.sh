@@ -387,7 +387,7 @@ loop() {
     count=$((count+1))
     roll
     stats
-    echo "${count}: ${CURRENT_ROLL} - ${CURRENT_MAX} (18/${CURRENT_STR_ROLL})"
+    echo "${count}: ${CURRENT_ROLL} - ${CURRENT_MAX} (18/${CURRENT_STR_MAX})"
   done
 }
 
