@@ -156,6 +156,7 @@ match-total() {
     3ef9bf6cd4d9946d89765870e5b21566*) CURRENT_ROLL=100 ;;
 
     *)
+      echo
       echo "No match for total found"
       echo "$checksum"
       scrot -a "${TOTAL_TOP_LEFT_X},${TOTAL_TOP_LEFT_Y},24,17" -oF /tmp/bg2ee-stat.png
@@ -373,23 +374,20 @@ focus() {
   sleep 1
 }
 
-loop-infinitely() {
-  local COUNT=0
-  while true; do
-    COUNT=$((COUNT+1))
-    roll
-    stats
-    echo "${COUNT}: ${CURRENT_ROLL} - ${CURRENT_MAX} (18/${CURRENT_STR_ROLL})"
-  done
-}
+loop() {
+  local count mouseid
+  count=0
+  mouseid="$(xinput --list | grep -im 1 'mouse' | sed 's/.*id=\([0-9]\+\).*/\1/')"
 
-loop-n() {
-  local COUNT=0
-  while [ "$COUNT" -lt "$1" ]; do
-    COUNT=$((COUNT+1))
+  while true; do
+    if xinput --query-state "$mouseid" | grep '=down$' >/dev/null; then
+      echo 'Stopping'
+      break
+    fi
+    count=$((count+1))
     roll
     stats
-    echo "${COUNT}: ${CURRENT_ROLL} - ${CURRENT_MAX} (18/${CURRENT_STR_ROLL})"
+    echo "${count}: ${CURRENT_ROLL} - ${CURRENT_MAX} (18/${CURRENT_STR_ROLL})"
   done
 }
 
@@ -409,6 +407,4 @@ trap printStats EXIT
 init
 focus
 recall
-
-time loop-infinitely
-# time loop-n 10000
+time loop
