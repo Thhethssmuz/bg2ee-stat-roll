@@ -154,6 +154,7 @@ match-total() {
     25112e67464791f24f9e2e99d38ef9d7*) CURRENT_ROLL=98 ;;
     9c3720b9d3ab1d7f0d11dfb9771a1aef*) CURRENT_ROLL=99 ;;
     3ef9bf6cd4d9946d89765870e5b21566*) CURRENT_ROLL=100 ;;
+    64b82ad60e8a2ee98d4f71c4a7db725a*) CURRENT_ROLL=101 ;;
 
     *)
       echo
