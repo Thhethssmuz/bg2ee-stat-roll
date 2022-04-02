@@ -155,6 +155,8 @@ match-total() {
     9c3720b9d3ab1d7f0d11dfb9771a1aef*) CURRENT_ROLL=99 ;;
     3ef9bf6cd4d9946d89765870e5b21566*) CURRENT_ROLL=100 ;;
     64b82ad60e8a2ee98d4f71c4a7db725a*) CURRENT_ROLL=101 ;;
+    09b4cac082f2393aa7eb0b55ce2d5154*) CURRENT_ROLL=102 ;;
+    af21244ab4f16ed0c969a401da9f90a8*) CURRENT_ROLL=103 ;;
 
     *)
       echo
